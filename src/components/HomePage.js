@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
 import './HomePage.css';
 
+const serviceDetails = {
+  'Social Media Campagnes': 'Wij creëren boeiende en effectieve social media campagnes die uw merk versterken en uw doelgroep betrekken. Onze strategieën zijn op maat gemaakt om uw online aanwezigheid te vergroten en meetbare resultaten te leveren.',
+  'Fotoshoots': 'Onze professionele fotoshoots brengen uw merk tot leven. We zorgen voor hoogwaardige, op maat gemaakte beelden die uw producten of diensten in de schijnwerpers zetten en een blijvende indruk maken op uw doelgroep.',
+  'Marketing': 'Onze uitgebreide marketingdiensten zijn ontworpen om uw bedrijf te laten groeien. Van contentmarketing tot e-mailcampagnes, we ontwikkelen geïntegreerde strategieën die uw merk versterken en uw omzet verhogen.'
+};
+
 function HomePage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [selectedService, setSelectedService] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const mailtoLink = `mailto:hello@morristheagency.be?subject=New message from ${name}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage: ${message}`)}`;
     window.location.href = mailtoLink;
+  };
+
+  const handleServiceClick = (service) => {
+    setSelectedService(service);
   };
 
   return (
@@ -31,13 +42,34 @@ function HomePage() {
           <p>Tailored strategies to drive your business growth</p>
         </section>
 
-        <section id="services">
+        {/* <section id="services">
           <h2>Diensten</h2>
           <ul>
             <li>Social Media Campagnes</li>
             <li>Fotoshoots</li>
             <li>Marketing</li>
           </ul>
+        </section> */}
+
+        <section id="services">
+          <h2>Onze Diensten</h2>
+          <div className="services-grid">
+            {Object.keys(serviceDetails).map((service) => (
+              <button 
+                key={service}
+                className="service-button" 
+                onClick={() => handleServiceClick(service)}
+              >
+                {service}
+              </button>
+            ))}
+          </div>
+          {selectedService && (
+            <div className="service-details">
+              <h3>{selectedService}</h3>
+              <p>{serviceDetails[selectedService]}</p>
+            </div>
+          )}
         </section>
 
         <section id="about">
