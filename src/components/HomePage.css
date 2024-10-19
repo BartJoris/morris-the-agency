@@ -1,0 +1,95 @@
+.homepage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+section {
+  margin: 60px 0;
+  padding: 40px;
+  border-radius: 8px;
+}
+
+.accent-bg {
+  background-color: var(--color-accent);
+}
+
+#hero {
+  text-align: center;
+  padding: 80px 0;
+}
+
+#hero h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+#services ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 0;
+  list-style-type: none;
+}
+
+#services li {
+  background-color: var(--color-secondary);
+  color: var(--color-background);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#contact form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#contact input,
+#contact textarea {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid var(--color-text);
+  border-radius: 4px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+#contact button {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+}
+
+#contact button:hover {
+  background-color: var(--color-secondary);
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-top: 1px solid var(--color-text);
+}
